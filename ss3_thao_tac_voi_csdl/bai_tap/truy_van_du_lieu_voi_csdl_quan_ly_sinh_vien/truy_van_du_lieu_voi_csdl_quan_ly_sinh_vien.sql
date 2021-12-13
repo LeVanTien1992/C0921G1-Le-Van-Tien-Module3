@@ -12,10 +12,11 @@ select *
 from subject
 where Credit between 3 and 5; 
 
-update student
-set student.ClassId = 2
-where student.StudentId = 1;
+-- update student
+-- set student.ClassId = 2
+-- where student.StudentId = 1;
+SELECT * FROM quan_ly_sinh_vien.student;
 
-SELECT S.StudentId, S.StudentName, Sub.SubName, M.Mark
-FROM Student S join Mark M on S.StudentId = M.StudentId join Subject Sub on M.SubId = Sub.SubId
-order by Mark DESC;
+select S.StudentId, S.StudentName, Sub.SubName, M.Mark
+from Student S join Mark M on S.StudentId = M.StudentId join Subject Sub on M.SubId = Sub.SubId
+order by Mark desc;
