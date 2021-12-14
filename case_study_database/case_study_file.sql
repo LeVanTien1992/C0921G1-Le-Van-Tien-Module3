@@ -32,7 +32,7 @@ SELECT * FROM furama.bo_phan;
 -- (8,"Nguyễn Hà Đông","1989-09-03","234414123",9000000,"0642123111","donghanguyen@gmail.com","111 Hùng Vương, Hà Nội",2,4,4),
 -- (9,"Tòng Hoang","1982-09-03","256781231",6000000,"0245144444","hoangtong@gmail.com","213 Hàm Nghi, Đà Nẵng",1,3,1),
 -- (10,"Nguyễn Công Đạo","1994-01-08","755434343",8000000,"0988767111","nguyencongdao12@gmail.com","6 Hoà Khánh, Đồng Nai",2,3,2);
-SELECT * FROM furama.nhan_vien;
+-- SELECT * FROM furama.nhan_vien;
 
 -- insert into furama.loai_khach
 -- values
@@ -443,6 +443,30 @@ where nhan_vien.ma_nhan_vien not in(
  );
  
  -- 19.	Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi.
+update dich_vu_di_kem
+set gia = gia * 2
+where dich_vu_di_kem =(
+	select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem
+	from hop_dong hd left join hop_dong_chi_tiet hdct
+	on hd.ma_hop_dong = hdct.ma_hop_dong left join dich_vu_di_kem dvdk
+	on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem left join dich_vu dv
+	on hd.ma_dich_vu = dv.ma_dich_vu left join loai_dich_vu ldv
+	on dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu
+	where year(hd.ngay_lam_hop_dong) = 2020
+	group by  dvdk.ten_dich_vu_di_kem
+	having count(dvdk.ma_dich_vu_di_kem) > 10
+);
  
  -- 20.	Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống,
  -- thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang), ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.
+ select kh.ma_khach_hang, kh.ho_ten, kh.so_dien_thoai, kh.ngay_sinh, kh.dia_chi
+ from khach_hang kh left join hop_dong hd
+ on kh.ma_khach_hang = hd.ma_khach_hang left join nhan_vien nv
+ on hd.ma_nhan_vien = nv.ma_nhan_vien
+ group by kh.ma_khach_hang
+ union all
+select nv.ma_nhan_vien, nv.ho_ten, nv.so_dien_thoai, nv.ngay_sinh, nv.dia_chi
+from khach_hang kh right join hop_dong hd
+ on kh.ma_khach_hang = hd.ma_khach_hang right join nhan_vien nv
+ on hd.ma_nhan_vien = nv.ma_nhan_vien
+ group by nv.ma_nhan_vien;
