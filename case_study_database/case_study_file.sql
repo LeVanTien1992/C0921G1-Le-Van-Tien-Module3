@@ -121,13 +121,16 @@ SELECT * FROM furama.hop_dong;
 -- (6,1,1,3),
 -- (7,2,1,2),
 -- (8,1,12,2);
+-- update hop_dong_chi_tiet
+-- set so_luong = 2
+-- where ma_hop_dong_chi_tiet = 8;
 SELECT * FROM furama.hop_dong_chi_tiet;
 
 -- 2.	Hiển thị thông tin của tất cả nhân viên có trong hệ thống 
 -- có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 kí tự.
 SELECT *
 FROM furama.nhan_vien 
-WHERE ho_ten LIKE "H%" or ho_ten LIKE "T%" or ho_ten LIKE "K%" and length(ho_ten) <= 15;
+WHERE ho_ten like "H%" or ho_ten like "T%" or ho_ten like "K%" and length(ho_ten) <= 15;
 
 -- 3.	Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.
 select *
@@ -296,10 +299,19 @@ on nv.ma_trinh_do = td.ma_trinh_do join bo_phan bp
 on nv.ma_bo_phan = bp.ma_bo_phan join hop_dong hd 
 on nv.ma_nhan_vien = hd.ma_nhan_vien 
 where year(hd.ngay_lam_hop_dong) between 2020 and 2021 
-group by nv.ma_nhan_vien;
+group by nv.ma_nhan_vien
+having count(nv.ma_nhan_vien) <=3;
 
 -- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021.
-select *
-from 
-
-
+SET SQL_SAFE_UPDATES = 0;
+-- Khi nào delete thì chạy câu lệnh trên rồi mới delete
+delete from nhan_vien
+where nhan_vien.ma_nhan_vien not in(
+	select * from (
+		select nv.ma_nhan_vien from nhan_vien nv join hop_dong hd 
+		on nv.ma_nhan_vien = hd.ma_nhan_vien
+		where year(hd.ngay_lam_hop_dong) between 2019 and 2021
+	)
+    tdlTmp
+    -- khi sử dụng xóa và update bằng câu lệnh truy vấn con thì sử dụng câu lệnh này
+ )
