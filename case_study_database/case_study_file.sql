@@ -32,7 +32,7 @@ SELECT * FROM furama.bo_phan;
 -- (8,"Nguyễn Hà Đông","1989-09-03","234414123",9000000,"0642123111","donghanguyen@gmail.com","111 Hùng Vương, Hà Nội",2,4,4),
 -- (9,"Tòng Hoang","1982-09-03","256781231",6000000,"0245144444","hoangtong@gmail.com","213 Hàm Nghi, Đà Nẵng",1,3,1),
 -- (10,"Nguyễn Công Đạo","1994-01-08","755434343",8000000,"0988767111","nguyencongdao12@gmail.com","6 Hoà Khánh, Đồng Nai",2,3,2);
--- SELECT * FROM furama.nhan_vien;
+SELECT * FROM furama.nhan_vien;
 
 -- insert into furama.loai_khach
 -- values
@@ -400,12 +400,14 @@ group by nv.ma_nhan_vien
 having count(nv.ma_nhan_vien) <=3;
 
 -- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021.
-SET SQL_SAFE_UPDATES = 0;
+
+SET FOREIGN_KEY_CHECKS = 0;
 -- Khi nào delete thì chạy câu lệnh trên rồi mới delete
 delete from nhan_vien
 where nhan_vien.ma_nhan_vien not in(
 	select * from (
-		select nv.ma_nhan_vien from nhan_vien nv join hop_dong hd 
+		select nv.ma_nhan_vien
+        from nhan_vien nv  join hop_dong hd 
 		on nv.ma_nhan_vien = hd.ma_nhan_vien
 		where year(hd.ngay_lam_hop_dong) between 2019 and 2021
 	)
@@ -414,6 +416,7 @@ where nhan_vien.ma_nhan_vien not in(
  );
  -- 17.	Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond, chỉ cập nhật những khách hàng đã từng đặt phòng với
  -- Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
+ SET SQL_SAFE_UPDATES = 0;
  update loai_khach
  set ten_loai_khach = 'Diamond'
  where loai_khach =(
@@ -428,25 +431,27 @@ where nhan_vien.ma_nhan_vien not in(
  );
  
  -- 18.	Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
- SET SQL_SAFE_UPDATES = 0;
+SET FOREIGN_KEY_CHECKS = 0;
 -- Khi nào delete thì chạy câu lệnh trên rồi mới delete
  delete from khach_hang
  where khach_hang.ma_khach_hang in(
 	select * from(
-		select kh.ma_khach_hang, kh.ho_ten
+		select kh.ma_khach_hang
 		from khach_hang kh join hop_dong hd
 		on kh.ma_khach_hang = hd.ma_khach_hang 
 		where year(ngay_lam_hop_dong) < 2021
     )
 	tdlTmp
     -- khi sử dụng xóa và update bằng câu lệnh truy vấn con thì sử dụng câu lệnh này
+    -- dùng dòng lệnh concat kh
  );
  
  -- 19.	Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi.
+ SET SQL_SAFE_UPDATES = 0;
 update dich_vu_di_kem
 set gia = gia * 2
 where dich_vu_di_kem =(
-	select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem
+	select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, count(dvdk.ma_dich_vu_di_kem) 
 	from hop_dong hd left join hop_dong_chi_tiet hdct
 	on hd.ma_hop_dong = hdct.ma_hop_dong left join dich_vu_di_kem dvdk
 	on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem left join dich_vu dv
