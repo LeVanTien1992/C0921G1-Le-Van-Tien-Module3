@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhúng CSS vào HTML</title>
+    <style>
+        h2{
+            color: green; margin-left: 30px;
+        }
+        #element2{
+            color: blue; margin-left: 20px;
+        }
+        body{
+            background-color: rosybrown;
+        }
+
+    </style>
+    <link rel="stylesheet"; type="text/css"; href="style.css">
+</head>
+<body>
+<h4>Phần 1: Hãy thay đổi màu sắc của văn bản sử dụng inline-style </h4>
+<h1 style = "color: green; margin-left :30px">This is heading 1</h1>
+<p style="color: blue; margin-left: 20px">This is an ordinary paragraph. Notice that this text is blue. The
+default page color for a page is defined int the body selector.</p>
+
+<h4>Phần 2: Hãy thay đổi màu sắc của văn bản sử dụng internal-style</h4>
+<h2>This is heading 1</h2>
+<p id="element2">This is an ordinary paragraph. Notice that this text is blue. The
+    default page color for a page is defined int the body selector.</p>
+
+<h4>Phần 3: Hãy thay đổi màu sắc của văn bản sử dụng external-style</h4>
+<h3>This is heading 1</h3>
+<p id="element3">This is an ordinary paragraph. Notice that this text is blue. The
+    default page color for a page is defined int the body selector.</p>
+</body>
+</html>
