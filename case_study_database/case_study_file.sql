@@ -367,6 +367,9 @@ group by hd.ma_hop_dong, nv.ho_ten, kh.ho_ten, kh.so_dien_thoai, dv.ten_dich_vu,
 -- 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. 
 -- (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
 
+-- dùng count để đếm số lượng khách hàng đặt phòng
+-- dùng having để thỏa điều kiện sử dụng nhiều nhất, cụ thể là 15 lần
+
 select  dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, sum(hdct.so_luong)'số lượng dịch vụ đi kèm' 
 from khach_hang kh right join hop_dong hd
 on kh.ma_khach_hang = hd.ma_khach_hang right join hop_dong_chi_tiet hdct
@@ -378,6 +381,10 @@ having sum(hdct.so_luong) >= 15;
 
 -- 14.Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. Thông tin hiển thị bao gồm ma_hop_dong,
 --  ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung (được tính dựa trên việc count các ma_dich_vu_di_kem).
+
+-- dùng hàm count để đếm số lần sử dụng dịch vụ 
+-- dùng having để set điều kiện dịch vụ đi kèm sử dụng duy nhất một lần
+-- và dùng order by để sắp xếp mã hợp đồng theo thứ tự tăng dần, dùng asc
 select distinct hd.ma_hop_dong,  ldv.ten_loai_dich_vu, dvdk.ten_dich_vu_di_kem, count(dvdk.ma_dich_vu_di_kem)'so lan su dung'
 from hop_dong hd  join hop_dong_chi_tiet hdct
 on hd.ma_hop_dong = hdct.ma_hop_dong  join dich_vu_di_kem dvdk
@@ -390,6 +397,9 @@ order by hd.ma_hop_dong asc;
 
 -- 15.	Hiển thi thông tin của tất cả nhân viên bao gồm ma_nhan_vien, ho_ten, ten_trinh_do, ten_bo_phan, so_dien_thoai, 
 -- dia_chi mới chỉ lập được tối đa 3 hợp đồng từ năm 2020 đến 2021.
+
+-- sử dụng between đặt hợp đồng trong khoản từ năm 2020 và 2021
+-- dùng having để set điều kiện tối đa 3 hợp đồng
 select nv.ma_nhan_vien, nv.ho_ten, td.ten_trinh_do, bp.ten_bo_phan, nv.so_dien_thoai, nv.dia_chi
 from nhan_vien nv join trinh_do td
 on nv.ma_trinh_do = td.ma_trinh_do join bo_phan bp
@@ -401,6 +411,8 @@ having count(nv.ma_nhan_vien) <=3;
 
 -- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021.
 
+-- dùng try vấn con để hiện thị xóa
+-- dùng between để set điều kiện trong khoản từ năm 2019 và 2021
 SET FOREIGN_KEY_CHECKS = 0;
 -- Khi nào delete thì chạy câu lệnh trên rồi mới delete
 delete from nhan_vien
@@ -416,6 +428,8 @@ where nhan_vien.ma_nhan_vien not in(
  );
  -- 17.	Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond, chỉ cập nhật những khách hàng đã từng đặt phòng với
  -- Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
+ 
+ -- dùng truy vấn con để update 
  SET SQL_SAFE_UPDATES = 0;
  update loai_khach
  set ten_loai_khach = 'Diamond'
@@ -464,6 +478,8 @@ where dich_vu_di_kem =(
  
  -- 20.	Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống,
  -- thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang), ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.
+ 
+ -- dùng union all để nối hai bảng lại với nhau, lấy tất cả thông tin của hai bảng dùng right join
  select kh.ma_khach_hang, kh.ho_ten, kh.so_dien_thoai, kh.ngay_sinh, kh.dia_chi
  from khach_hang kh left join hop_dong hd
  on kh.ma_khach_hang = hd.ma_khach_hang left join nhan_vien nv
