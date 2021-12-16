@@ -431,10 +431,11 @@ where nhan_vien.ma_nhan_vien not in(
  
  -- dùng truy vấn con để update 
  SET SQL_SAFE_UPDATES = 0;
- update loai_khach
- set ten_loai_khach = 'Diamond'
- where loai_khach =(
-	select kh.ma_khach_hang, kh.ho_ten, lk.ma_loai_khach
+ update khach_hang
+ set ma_loai_khach = 2
+ where khach_hang.ma_khach_hang in(
+	select * from(
+	select kh.ma_khach_hang 
     from khach_hang kh left join hop_dong hd 
     on kh.ma_khach_hang = hd.ma_khach_hang left join loai_khach lk
     on kh.ma_loai_khach = lk.ma_loai_khach left join dich_vu dv 
@@ -442,6 +443,8 @@ where nhan_vien.ma_nhan_vien not in(
     where year(ngay_ket_thuc) = 2021
     group by kh.ma_khach_hang
     having sum(dv.chi_phi_thue) > 10000000
+    )
+    tdlTmp
  );
  
  -- 18.	Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
@@ -464,16 +467,19 @@ SET FOREIGN_KEY_CHECKS = 0;
  SET SQL_SAFE_UPDATES = 0;
 update dich_vu_di_kem
 set gia = gia * 2
-where dich_vu_di_kem =(
-	select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, count(dvdk.ma_dich_vu_di_kem) 
+where dich_vu_di_kem.ma_dich_vu_di_kem =(
+	select * from (
+		select dvdk.ma_dich_vu_di_kem
 	from hop_dong hd left join hop_dong_chi_tiet hdct
 	on hd.ma_hop_dong = hdct.ma_hop_dong left join dich_vu_di_kem dvdk
 	on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem left join dich_vu dv
 	on hd.ma_dich_vu = dv.ma_dich_vu left join loai_dich_vu ldv
 	on dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu
 	where year(hd.ngay_lam_hop_dong) = 2020
-	group by  dvdk.ten_dich_vu_di_kem
-	having count(dvdk.ma_dich_vu_di_kem) > 10
+	group by  dvdk.ma_dich_vu_di_kem
+	having  sum(hdct.so_luong)  > 10
+    )
+    	tdlTmp
 );
  
  -- 20.	Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống,
