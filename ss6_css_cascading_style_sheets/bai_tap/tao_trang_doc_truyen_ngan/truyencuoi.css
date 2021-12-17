@@ -1,0 +1,31 @@
+a:hover{
+    text-decoration: none;
+    color: burlywood;
+}
+h3{
+    color: rosybrown;
+    background-color: indigo;
+    animation-name: example;
+    animation-duration: 4s;
+  
+}
+body{
+    background-color: thistle;
+}
+div{
+    background-color: Crimson;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 4s;
+}
+@keyframes example {
+    0% {background-color:red; left:0px; top:0px;}
+    25% {background-color:yellow; left:200px; top:0px;}
+    50% {background-color:blue; left:200px; top:200px;}
+    75% {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+/*a:hover{*/
+/*    color:red; background-color:transparent; text-decoration:underline*/
+/*}*/
