@@ -1,0 +1,112 @@
+body{
+    font-family: Arial, Tahoma;
+    font-size: 12px;
+}
+/*.clearfix{*/
+/*    clear: both;*/
+/*}*/
+#main{
+    width: 100%;
+}
+#head{
+    background-color: white;
+    height: 70px;
+    width: 70%;
+    margin: 0px auto;
+}
+ul li{
+    list-style: none;
+
+}
+ul#mu_menu{
+    float: right;
+    margin-bottom: 40px;
+
+}
+a:hover{
+    background: #bdc3c7;
+
+}
+ul#mu_menu li{
+    float: left;
+    font-size: large;
+
+}
+ul#mu_menu li a{
+    margin: 6px 15px;
+    text-decoration: none;
+    color: #000;
+
+}
+#logo{
+    float: left;
+    height: 45px;
+}
+#logo img{
+    height: 100%;
+    width: auto;
+}
+#left{
+    background-color: #bdc3c7;
+    width: 20%;
+    height: 500px;
+    float: left;
+}
+
+#left ul li{
+    background-color: #bdc3c7;
+    width: 50px;
+    height: 5px;
+    font-size: x-large;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+
+}
+#left ul li a{
+    text-decoration: none;
+}
+#right a{
+    text-decoration: none;
+}
+#content{
+    background-color: #ecf0f1;
+    width: 60%;
+    height: 500px;
+    float: left;
+}
+#right{
+    background-color: #bdc3c7;
+    width: 20%;
+    height: 500px;
+    float: right;
+}
+.go{
+    border: 1px solid white;
+    background-color: #CDCDCD;
+    height: 10%;
+    text-align: center;
+    box-sizing: border-box;
+    margin: auto;
+    width: 60%;
+    padding: 50px;
+}
+
+
+#footer{
+    background-color: #2c3e50;
+    width: 100%;
+    height: 70px;
+    clear: both;
+}
+p{
+    text-indent: 30px;
+    font-size: x-large;
+    font-family: "Times New Roman";
+
+}
+#stadium{
+    margin: auto;
+    width: 60%;
+    padding: 25px;
+}
