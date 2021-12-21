@@ -1,8 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+.menu::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+
+
+
+
 body{
     font-family: Arial, Tahoma;
     font-size: 12px;
 }
-#menu{
+.menu{
     width: 1000px;
     padding: 0;
     margin-left: auto;
@@ -14,18 +44,13 @@ body{
 /*    border: 1px solid #CDCDCD;*/
 /*    margin-bottom:5px;*/
 /*}*/
-#head-link{
-    height: 30px;
-    line-height: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
+.head-link{
     border: 1px solid #CDCDCD;
     background-color: white;
-    margin-bottom:5px;
     clear: both;
 }
 
-#left{
+.left{
     width: 150px;
     min-height: 400px;
     border: 1px solid #CDCDCD;
@@ -33,7 +58,7 @@ body{
     background-color: white;
     margin-bottom: 5px;
 }
-#content{
+.content{
     width: 600px;
     min-height: 400px;
     border: 1px solid #CDCDCD;
@@ -42,25 +67,25 @@ body{
     margin-right: 5px;
     margin-bottom: 5px;
 }
-#right{
+.right{
     width: 234px;
     min-height: 400px;
     border: 1px solid #CDCDCD;
     float:right;
-    margin-bottom: 5px;
+    line-height: 40px;
 }
-#menu ul, #menu li{
+.menu ul, #menu li{
     padding:0;
     margin:0;
 }
-#menu li{
+.menu li{
     position: relative;
     float: left;
     list-style: none;
     margin: 0;
     padding:0;
 }
-#menu li a {
+.menu li a {
     width: 100px;
     height: 30px;
     display: block;
@@ -70,13 +95,13 @@ body{
     background-color: white;
     color: black;
 }
-#left a{
+.left a{
     text-decoration: none;
 }
-#right a{
+.right a{
     text-decoration: none;
 }
-#head-link a:hover{
+.head-link a:hover{
     background-color: darkgray;
 }
 
@@ -85,35 +110,36 @@ body{
 /*}*/
 
 
-#menu ul ul li a {
+.menu ul ul li a {
     width: 200px;
     text-align: left;
     padding-left: 10px;
 }
-#menu a:hover{
+.menu a:hover{
     background-color: grey;
 }
-#menu ul ul{
+.menu ul ul{
     position: absolute;
     top: 30px;
 }
-#menu ul ul{
+.menu ul ul{
     position: absolute;
     top: 30px;
     left: 15px;
     visibility: hidden;
 }
-#menu ul li:hover ul{
+.menu ul li:hover ul{
     visibility: visible;
 }
-#footer{
+.footer{
     height: 50px;
     clear: both;
     border: 1px solid #CDCDCD;
     background-color: #F8F8FF;
+    text-align: center;
 }
 
-#profile{
+.profile{
     border: 1px solid blue;
     border-radius: 5px;
     margin: 5px;
@@ -123,7 +149,7 @@ body{
     background: #CDCDCD;
     color: black;
 }
-#friends{
+.friends{
     border: 1px solid blue;
     border-radius: 5px;
     margin: 5px;
@@ -133,7 +159,7 @@ body{
     background: #CDCDCD;
     color: black;
 }
-#group{
+.group{
     border: 1px solid blue;
     border-radius: 5px;
     margin: 5px;
@@ -143,7 +169,7 @@ body{
     background: #CDCDCD;
     color: black;
 }
-#marketplace{
+.marketplace{
     border: 1px solid blue;
     border-radius: 5px;
     margin: 5px;
@@ -153,7 +179,7 @@ body{
     background: #CDCDCD;
     color: black;
 }
-#watch1{
+.watch1{
     border: 1px solid blue;
     border-radius: 5px;
     margin: 5px;
@@ -163,7 +189,7 @@ body{
     background: #CDCDCD;
     color: black;
 }
-#memory{
+.memory{
     border: 1px solid blue;
     border-radius: 5px;
     margin: 5px;
@@ -173,7 +199,7 @@ body{
     background: #CDCDCD;
     color: black;
 }
-#more{
+.more{
     border: 1px solid blue;
     border-radius: 5px;
     margin: 5px;
@@ -183,7 +209,7 @@ body{
     background: #CDCDCD;
     color: black;
 }
-#watch2{
+.watch2{
     border: 1px solid blue;
     border-radius: 5px;
     margin: 5px;
@@ -193,7 +219,7 @@ body{
     background: #CDCDCD;
     color: black;
 }
-#taitro{
+.taitro{
     border: 1px solid blue;
     border-radius: 5px;
     margin: 5px;
@@ -203,7 +229,7 @@ body{
     background: #CDCDCD;
     color: black;
 }
-#more2{
+.more2{
     border: 1px solid blue;
     border-radius: 5px;
     margin: 5px;
