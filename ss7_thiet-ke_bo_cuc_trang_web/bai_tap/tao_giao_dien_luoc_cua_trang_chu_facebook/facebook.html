@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Tạo giao diện giản lược của trang chủ Facebook</title>
     <link rel="stylesheet" type="text/css" href="facebook.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 </head>
 <body>
 <div class="menu">
@@ -11,12 +12,17 @@
     <div class="col-12 head-link">
         <ul>
             <li class="image"><a href="#"><img src="facebook.png" width="30px" height="30px" alt="logo facebook"></a></li>
-            <li class="home"><a href="#">Home</a></li>
-            <li class="watch"><a href="#">Watch</a></li>
-            <li class="market"><a href="#">MarketPlace</a></li>
-            <li class="game"><a href="#">Game</a></li>
+            <li><input style="height: 30px ; border-radius: 5px"  type="search" id="site-search" name="q"
+                       aria-label="Search through site content" placeholder="Tìm kiếm tên Facebook" ></li>
+            <li class="home"><a href="#"><i class="fas fa-house-user fa-3x"></i></a></li>
+            <li class="watch"><a href="#"><i class="fab fa-youtube fa-3x"></i></a></li>
+            <li class="market"><a href="#"><i class="fas fa-laptop-house fa-3x"></i></a></li>
+            <li class="market"><a href="#"><i class="fas fa-users fa-3x"></i></a></li>
+            <li class="game"><a href="#"><i class="fas fa-comment-dots fa-3x"></i></a></li>
+            <li class="game"><a href="#"><i class="fas fa-bars fa-3x"></i></a></li>
+<!--            <li class="game"><a href="#"><i class="fas fa-caret-down fa-3x"></i></a></li>-->
         </ul>
-    </div>
+    </div><i class="fas fa-bars"></i>
     <div class="col-3 left">
         <div class="profile"><a href="#">Frofile</a></div>
         <div class="friends"><a href="#">Friends</a></div>
@@ -28,7 +34,7 @@
     </div>
     <div class="col-6 content">
         <div><img src="cut.png" width="570px" height="400px"></div>
-        <div><img src="mark.jpeg" width="300px" height="250px"></div>
+        <div><img src="mark.jpeg" width="570px" height="250px"></div>
         <p>Hàng năm, trang Yahoo Finance đều tổ chức một cuộc khảo sát để tìm ra “công ty tốt nhất thế giới,” dựa trên phản hồi của độc giả. Chủ nhân danh hiệu này năm nay là Microsoft. Nhưng cùng lúc, trong năm nay, Yahoo Finance cũng tổ chức trưng cầu ý kiến để tìm ra công ty tệ hại nhất thế giới. Theo ý kiến của 1000 người tham gia, Facebook, nay là Meta, xứng đáng nhận danh hiệu ấy. Số lượt bình chọn Facebook là công ty tệ hại nhất hành tinh cao gấp rưỡi so với vị trí thứ nhì, nền tảng thương mại điện tử Alibaba của tỷ phủ Jack Ma.</p>
     </div>
     <div class="col-3 right">
