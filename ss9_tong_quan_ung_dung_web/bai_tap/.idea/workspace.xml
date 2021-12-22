@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="635ad4af-ea2d-4946-9275-69be4408d8b8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../case_study_database/case_study_file.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study_database/case_study_file.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../product_management_tony/src/main/java/connected/Cumtomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../product_management_tony/src/main/java/connected/Cumtomer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../product_management_tony/src/main/java/connected/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../product_management_tony/src/main/java/connected/DBConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../rent_apartment1/src/main/java/connect/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../rent_apartment1/src/main/java/connect/DBConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../rent_apartment1/src/main/java/connect/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../rent_apartment1/src/main/java/connect/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../rent_apartment1/src/main/java/connect/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../rent_apartment1/src/main/java/connect/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../rent_apartment1/src/main/webapp/trangchu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../rent_apartment1/src/main/webapp/trangchu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2_thiet_ke_va_tao_csdl/bai_tap/xay_dung_csdl_quan_ly_ban_hang/quan_ly_ban_hang.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss2_thiet_ke_va_tao_csdl/bai_tap/xay_dung_csdl_quan_ly_ban_hang/quan_ly_ban_hang.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2_thiet_ke_va_tao_csdl/thuc_hanh/tao_csdl_quan_ly_sinh_vien/quan_ly_sinh_vien.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss2_thiet_ke_va_tao_csdl/thuc_hanh/tao_csdl_quan_ly_sinh_vien/quan_ly_sinh_vien.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_sql_view_index _va_stored_procedure/bai_tap/bai_tap_5_view,_index_store_procedure.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss5_sql_view_index _va_stored_procedure/bai_tap/bai_tap_5_view,_index_store_procedure.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_thiet-ke_bo_cuc_trang_web/bai_tap/phat_trien_xem_trang_web_hoat_hinh_truc_tuyen/hoathinh.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss7_thiet-ke_bo_cuc_trang_web/bai_tap/phat_trien_xem_trang_web_hoat_hinh_truc_tuyen/hoathinh.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../student/src/main/java/student/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../student/src/main/java/student/Class.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../student/src/main/java/student/DBStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../student/src/main/java/student/DBStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../worker_management_tony1/src/main/java/connect_woker/CreateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../worker_management_tony1/src/main/java/connect_woker/CreateServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../worker_management_tony1/src/main/java/connect_woker/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../worker_management_tony1/src/main/java/connect_woker/DBConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../worker_management_tony1/src/main/java/connect_woker/DeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../worker_management_tony1/src/main/java/connect_woker/DeleteServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../worker_management_tony1/src/main/java/connect_woker/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../worker_management_tony1/src/main/java/connect_woker/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../worker_management_tony1/src/main/java/connect_woker/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../worker_management_tony1/src/main/java/connect_woker/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../worker_management_tony1/src/main/java/connect_woker/UpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../worker_management_tony1/src/main/java/connect_woker/UpdateServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../worker_management_tony1/src/main/webapp/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../worker_management_tony1/src/main/webapp/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../worker_management_tony1/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../worker_management_tony1/src/main/webapp/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../worker_management_tony1/src/main/webapp/update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../worker_management_tony1/src/main/webapp/update.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="22ck5Amioli0c0fKBhsq2BcyzdM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="635ad4af-ea2d-4946-9275-69be4408d8b8" name="Default Changelist" comment="" />
+      <created>1640144076419</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640144076419</updated>
+      <workItem from="1640144078678" duration="56000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="65" y="0" key="new project wizard" timestamp="1640144138304">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1640144138304" />
+  </component>
+</project>
