@@ -33,7 +33,7 @@ public class CustomerServlet extends HttpServlet {
                 updateCustomer(request, response);
                 break;
             case "sort":
-                sortCustomerByName(response, request);
+                sortCustomerByName(request, response);
                 break;
             default:
                 break;
@@ -85,7 +85,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     public void showFormCreate(HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException, ServletException {
-        request.getRequestDispatcher("view.jsp").forward(request, response);
+        request.getRequestDispatcher("create.jsp").forward(request, response);
     }
 
     public void searchCustomer(HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException{
@@ -136,19 +136,24 @@ public class CustomerServlet extends HttpServlet {
         CustomerService customerService = new CustomerServieIpml();
         Customer customer = customerService.updateCustomerById(id);
         request.setAttribute("vCustomer", customer);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("home.jsp");
         try {
-            request.getRequestDispatcher("view.jsp").forward(request, response);
+            requestDispatcher.forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         }
     }
 
-    public void sortCustomerByName(HttpServletResponse response, HttpServletRequest request) throws SecurityException, IOException{
+    public void sortCustomerByName( HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException{
         String name = request.getParameter("byName");
         CustomerService customerService = new CustomerServieIpml();
         List<Customer> customerList = customerService.sortByName(name);
-        request.setAttribute("sortList", customerList);
-        response.sendRedirect("customer");
+        request.setAttribute("listC", customerList);
+        try {
+            request.getRequestDispatcher("home.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
     }
 
 }

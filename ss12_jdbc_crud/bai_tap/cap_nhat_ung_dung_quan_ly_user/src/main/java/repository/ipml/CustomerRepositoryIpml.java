@@ -159,7 +159,6 @@ public class CustomerRepositoryIpml implements CustomerRepository {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
         return customerList;
     }
 }

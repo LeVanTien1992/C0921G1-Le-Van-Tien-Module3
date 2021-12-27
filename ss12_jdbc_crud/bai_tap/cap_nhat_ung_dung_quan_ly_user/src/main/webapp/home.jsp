@@ -56,7 +56,7 @@
     </tr>
     </c:forEach>
 </table>
-<a href="/customer?actionUser=create">Create Student</a>
+<a href="/customer?actionUser=create">Create Customer</a>
 <form action="/customer?actionUser=search" method="post">
     <p>Search: </p>
 
@@ -65,8 +65,8 @@
 </form>
 <form action="/customer?actionUser=sort" method="post">
     <p>Sort By Name: </p>
-    <input type="text" name="sortList" placeholder="Enter Keyword">
-    <input type="submit" value="Search">
+    <input type="submit" name="byName" value="Sort By Name">
+<%--    <input type="submit" value="Search">--%>
 </form>
 // sử dụng c:if nếu không muốn thẻ a hiện lên tại trang chủ customer
 <a href="/customer">Go back home</a>
