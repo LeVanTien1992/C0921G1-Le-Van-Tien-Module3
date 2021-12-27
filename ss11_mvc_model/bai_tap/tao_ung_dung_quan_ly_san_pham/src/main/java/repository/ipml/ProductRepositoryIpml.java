@@ -1,11 +1,12 @@
-package service;
+package repository.ipml;
 
 import model.Product;
+import repository.ProductRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductServiceImpl implements ProductService{
+public class ProductRepositoryIpml implements ProductRepository {
     private static List<Product> productList;
     static {
         productList = new ArrayList<>();
@@ -16,6 +17,7 @@ public class ProductServiceImpl implements ProductService{
         productList.add(new Product(4,"Tesla Model 5","Tesla", 2000));
         productList.add(new Product(5,"BlackBerry 9900","BlackBerry", 500));
     }
+
     @Override
     public List<Product> findAll() {
         return new ArrayList<>(productList);

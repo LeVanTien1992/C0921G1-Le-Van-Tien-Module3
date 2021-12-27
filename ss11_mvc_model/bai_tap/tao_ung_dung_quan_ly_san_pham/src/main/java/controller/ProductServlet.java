@@ -2,7 +2,7 @@ package controller;
 
 import model.Product;
 import service.ProductService;
-import service.ProductServiceImpl;
+import service.ipml.ProductServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
