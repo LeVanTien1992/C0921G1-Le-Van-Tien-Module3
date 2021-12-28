@@ -43,7 +43,7 @@ public class CustomerServieIpml implements CustomerService {
     }
 
     @Override
-    public List<Customer> sortByName(String name) {
-        return this.customerRepository.sortByName(name);
+    public List<Customer> sortByName( ) {
+        return this.customerRepository.sortByName();
     }
 }

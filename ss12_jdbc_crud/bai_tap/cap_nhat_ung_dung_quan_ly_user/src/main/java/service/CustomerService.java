@@ -11,5 +11,5 @@ public interface CustomerService {
     Customer updateCustomerById(String id);
     void updateCustomer(String id, String name, String email , String country);
     void remove(String id);
-    List<Customer> sortByName(String name);
+    List<Customer> sortByName( );
 }

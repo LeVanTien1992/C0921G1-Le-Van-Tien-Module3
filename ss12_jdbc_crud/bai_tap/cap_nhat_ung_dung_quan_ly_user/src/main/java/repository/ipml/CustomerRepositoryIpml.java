@@ -139,16 +139,15 @@ public class CustomerRepositoryIpml implements CustomerRepository {
     }
 
     @Override
-    public List<Customer> sortByName(String name) {
+    public List<Customer> sortByName( ) {
         List<Customer> customerList = new ArrayList<>();
         String query = "select *\n" +
                 "from customer\n" +
-                "order by ?;";
+                "order by `name` ;";
 
         try {
             connection = new DBConnect().getConnection();
             ps = connection.prepareStatement(query);
-            ps.setString(1, name);
             rs = ps.executeQuery();
             while (rs.next()){
                 customerList.add(new Customer(rs.getInt(1),

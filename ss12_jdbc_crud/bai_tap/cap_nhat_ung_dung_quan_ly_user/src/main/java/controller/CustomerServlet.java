@@ -32,9 +32,7 @@ public class CustomerServlet extends HttpServlet {
             case "update":
                 updateCustomer(request, response);
                 break;
-            case "sort":
-                sortCustomerByName(request, response);
-                break;
+
             default:
                 break;
         }
@@ -57,6 +55,9 @@ public class CustomerServlet extends HttpServlet {
                 break;
             case "view":
                 viewCustomer(request, response);
+                break;
+            case "sort":
+                sortCustomerByName(request, response);
                 break;
             default:
                 listCustomer(request, response);
@@ -145,12 +146,12 @@ public class CustomerServlet extends HttpServlet {
     }
 
     public void sortCustomerByName( HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException{
-        String name = request.getParameter("byName");
         CustomerService customerService = new CustomerServieIpml();
-        List<Customer> customerList = customerService.sortByName(name);
+        List<Customer> customerList = customerService.sortByName();
         request.setAttribute("listC", customerList);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("home.jsp");
         try {
-            request.getRequestDispatcher("home.jsp").forward(request, response);
+            requestDispatcher.forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         }

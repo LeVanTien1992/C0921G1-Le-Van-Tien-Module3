@@ -63,11 +63,9 @@
     <input type="text" name="search" placeholder="Enter Keyword">
     <input type="submit" value="Search">
 </form>
-<form action="/customer?actionUser=sort" method="post">
-    <p>Sort By Name: </p>
-    <input type="submit" name="byName" value="Sort By Name">
-<%--    <input type="submit" value="Search">--%>
-</form>
+<button>
+    <a href="/customer?actionUser=sort">Sort By Name</a>
+</button>
 // sử dụng c:if nếu không muốn thẻ a hiện lên tại trang chủ customer
 <a href="/customer">Go back home</a>
 </body>
