@@ -13,4 +13,5 @@ public interface CustomerRepository {
     Customer updateCustomerById(String customerId);
     void updateCustomer(Customer customer);
     List<Customer> findByName(String customerName);
+    List<CustomerType> getAllCustomerType();
 }

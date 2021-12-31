@@ -63,7 +63,7 @@ public class CustomerServlet extends HttpServlet {
         CustomerService customerService = new CustomerServiceIpml();
         List<Customer> customerList = customerService.displayCustomer();
         request.setAttribute("cList", customerList);
-        request.getRequestDispatcher("customer.jsp").forward(request, response);
+        request.getRequestDispatcher("customerHome.jsp").forward(request, response);
     }
 
     public void viewHomeFurama(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
@@ -78,9 +78,6 @@ public class CustomerServlet extends HttpServlet {
     }
 
     public void createCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        //        String customerName, Date customerDateOfBirth, String customerGender, String customerIdCard,
-//                String customerPhoneNumber, String customerEmail, String customerAddress,
-//                String customer_type_id
         CustomerService customerService = new CustomerServiceIpml();
         Customer customer = new Customer();
         customer.setCustomerName(request.getParameter("customerName"));
@@ -91,12 +88,15 @@ public class CustomerServlet extends HttpServlet {
         customer.setCustomerEmail(request.getParameter("customerEmail"));
         customer.setCustomerAddress(request.getParameter("customerAddress"));
         CustomerType customerType = new CustomerType();
-        customerType.setCustomerTypeId(Integer.parseInt(request.getParameter("customerTypeId")));
+        customerType.setCustomerTypeId(Integer.parseInt(request.getParameter("cl")));
         customer.setCustomerType(customerType);
         customerService.addCustomer(customer);
         response.sendRedirect("custommer?actionUser=showList");
     }
     public void showFormCreateCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        CustomerService customerService = new CustomerServiceIpml();
+        List<CustomerType> customerTypeList = customerService.getAllCustomerType();
+        request.setAttribute("tony", customerTypeList);
         request.getRequestDispatcher("createCustomer.jsp").forward(request, response);
     }
 
@@ -108,9 +108,6 @@ public class CustomerServlet extends HttpServlet {
         request.getRequestDispatcher("update.jsp").forward(request, response);
     }
     public void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        //        String customerName, Date customerDateOfBirth, String customerGender, String customerIdCard,
-//                String customerPhoneNumber, String customerEmail, String customerAddress,
-//                String customer_type_id
         CustomerService customerService = new CustomerServiceIpml();
         Customer customer = new Customer();
         customer.setCustomerId(Integer.parseInt(request.getParameter("customerId")));
@@ -132,6 +129,8 @@ public class CustomerServlet extends HttpServlet {
         CustomerService customerService = new CustomerServiceIpml();
         List<Customer> customerList = customerService.findByName(customerName);
         request.setAttribute("cList", customerList);
-        request.getRequestDispatcher("customer.jsp").forward(request,response);
+        request.getRequestDispatcher("customerHome.jsp").forward(request,response);
     }
+
+
 }

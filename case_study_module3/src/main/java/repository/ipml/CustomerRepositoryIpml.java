@@ -159,39 +159,6 @@ public class CustomerRepositoryIpml implements CustomerRepository {
             e.printStackTrace();
         }
     }
-//
-//    @Override
-//    public void updateCustomer(String customerId, String customerName, Date customerDateOfBirth, String customerGender,
-//                               String customerIdCard, String customerPhoneNumber, String customerEmail,
-//                               String customerAddress, String customer_type_id) {
-//        String query = "update customer \n" +
-//                "set customer_name = ?,\n" +
-//                "customer_birthday = ?,\n" +
-//                "customer_gender = ?,\n" +
-//                "customer_id_card = ?,\n" +
-//                "customer_phone = ?,\n" +
-//                "customer_email = ?,\n" +
-//                "customer_address = ?,\n" +
-//                "customer_type_id = ?\n" +
-//                "where customer_id = ?;";
-//
-//        try {
-//            connection = new DBConnect().getConnection();
-//            ps = connection.prepareStatement(query);
-//            ps.setString(1, customerName);
-//            ps.setDate(2, (java.sql.Date) customerDateOfBirth);
-//            ps.setInt(3, Integer.parseInt(customerGender));
-//            ps.setString(4, customerIdCard);
-//            ps.setString(5, customerPhoneNumber);
-//            ps.setString(6, customerEmail);
-//            ps.setString(7, customerAddress);
-//            ps.setString(8, customer_type_id);
-//            ps.setString(9, customerId);
-//            ps.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     @Override
     public List<Customer> findByName(String customerName) {
@@ -221,6 +188,26 @@ public class CustomerRepositoryIpml implements CustomerRepository {
             e.printStackTrace();
         }
         return customerList;
+    }
+
+    @Override
+    public List<CustomerType> getAllCustomerType() {
+        List<CustomerType> customerTypeList = new ArrayList<>();
+        String query = "select *\n" +
+                "from customer_type;";
+
+        try {
+            connection = new DBConnect().getConnection();
+            ps = connection.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                customerTypeList.add(new CustomerType(rs.getInt("customer_type_id"),
+                        rs.getString("customer_type_name")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customerTypeList;
     }
 
 }

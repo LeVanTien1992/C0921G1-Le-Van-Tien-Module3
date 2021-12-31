@@ -33,7 +33,7 @@ public class CustomerServiceIpml implements CustomerService {
 
     @Override
     public void updateCustomer(Customer customer) {
-
+        customerRepository.updateCustomer(customer);
     }
 
 
@@ -42,5 +42,17 @@ public class CustomerServiceIpml implements CustomerService {
         return this.customerRepository.findByName(customerName);
     }
 
+    @Override
+    public List<CustomerType> getAllCustomerType() {
+        return customerRepository.getAllCustomerType();
+    }
+
+    public static void main(String[] args) {
+        CustomerService customerService = new CustomerServiceIpml();
+        List<CustomerType> customerTypeList = customerService.getAllCustomerType();
+        for (CustomerType customerType: customerTypeList){
+            System.out.println(customerType);
+        }
+    }
 
 }
