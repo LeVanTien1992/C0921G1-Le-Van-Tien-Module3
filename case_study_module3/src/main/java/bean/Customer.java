@@ -102,4 +102,19 @@ public class Customer {
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", customerName='" + customerName + '\'' +
+                ", customerDateOfBirth='" + customerDateOfBirth + '\'' +
+                ", customerGender=" + customerGender +
+                ", customerIdCard='" + customerIdCard + '\'' +
+                ", customerPhoneNumber='" + customerPhoneNumber + '\'' +
+                ", customerEmail='" + customerEmail + '\'' +
+                ", customerAddress='" + customerAddress + '\'' +
+                ", customerType=" + customerType +
+                '}';
+    }
 }

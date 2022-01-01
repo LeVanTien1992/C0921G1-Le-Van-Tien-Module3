@@ -88,7 +88,18 @@
             </div>
 
             <div class="form-outline mb-4">
-              <input type="text" name="customerTypeId" value="${cl.customerType.customerTypeId}" class="form-control form-control-lg" />
+              <select name="cl">
+                <c:forEach items="${tony}" var="t">
+                  <c:choose>
+                    <c:when test="${t.customerTypeId == cl.customerType.customerTypeId}">
+                      <option selected value="${t.customerTypeId}">${t.customerTypeName}</option>
+                    </c:when>
+                    <c:otherwise>
+                      <option  value="${t.customerTypeId}">${t.customerTypeName}</option>
+                    </c:otherwise>
+                  </c:choose>
+                </c:forEach>
+              </select>
               <label class="form-label" >Customer Type </label>
             </div>
 

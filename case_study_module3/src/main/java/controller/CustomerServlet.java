@@ -103,8 +103,19 @@ public class CustomerServlet extends HttpServlet {
     public void updateCustomerById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String customerId = request.getParameter("uid");
         CustomerService customerService = new CustomerServiceIpml();
+
+
         Customer customer = customerService.updateCustomerById(customerId);
         request.setAttribute("cl", customer);
+
+
+
+
+        List<CustomerType> customerTypeList = customerService.getAllCustomerType();
+        request.setAttribute("tony", customerTypeList);
+
+
+
         request.getRequestDispatcher("update.jsp").forward(request, response);
     }
     public void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -119,7 +130,7 @@ public class CustomerServlet extends HttpServlet {
         customer.setCustomerEmail(request.getParameter("customerEmail"));
         customer.setCustomerAddress(request.getParameter("customerAddress"));
         CustomerType customerType = new CustomerType();
-        customerType.setCustomerTypeId(Integer.parseInt(request.getParameter("customerTypeId")));
+        customerType.setCustomerTypeId(Integer.parseInt(request.getParameter("cl")));
         customer.setCustomerType(customerType);
         customerService.updateCustomer(customer);
         response.sendRedirect("customer?actionUser=showList");
@@ -131,6 +142,7 @@ public class CustomerServlet extends HttpServlet {
         request.setAttribute("cList", customerList);
         request.getRequestDispatcher("customerHome.jsp").forward(request,response);
     }
+
 
 
 }

@@ -26,10 +26,6 @@ public class CustomerRepositoryIpml implements CustomerRepository {
                 "from customer c join customer_type ct\n" +
                 "on c.customer_type_id = ct.customer_type_id\n" +
                 "order by customer_id asc;";
-//        int customerId, String customerName, Date customerDateOfBirth, String customerGender,
-//                String customerIdCard, String customerPhoneNumber, String customerEmail,
-//                String customerAddress, CustomerType customerType
-
         try {
             connection = new DBConnect().getConnection();
             ps = connection.prepareStatement(query);
@@ -125,7 +121,6 @@ public class CustomerRepositoryIpml implements CustomerRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
@@ -141,7 +136,6 @@ public class CustomerRepositoryIpml implements CustomerRepository {
                 "customer_address = ?,\n" +
                 "customer_type_id = ?\n" +
                 "where customer_id = ?;";
-
         try {
             connection = new DBConnect().getConnection();
             ps = connection.prepareStatement(query);
@@ -195,7 +189,6 @@ public class CustomerRepositoryIpml implements CustomerRepository {
         List<CustomerType> customerTypeList = new ArrayList<>();
         String query = "select *\n" +
                 "from customer_type;";
-
         try {
             connection = new DBConnect().getConnection();
             ps = connection.prepareStatement(query);
@@ -209,5 +202,4 @@ public class CustomerRepositoryIpml implements CustomerRepository {
         }
         return customerTypeList;
     }
-
 }
