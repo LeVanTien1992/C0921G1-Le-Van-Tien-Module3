@@ -5,7 +5,7 @@ import java.util.Date;
 public class Employee {
     private int employeeId;
     private String employeeName;
-    private Date employeeDateOfBirth;
+    private String employeeDateOfBirth;
     private String employeeIdCard;
     private double employeeSalary;
     private String employeePhoneNumber;
@@ -18,10 +18,9 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int employeeId, String employeeName, Date employeeDateOfBirth, String employeeIdCard,
-                    double employeeSalary, String employeePhoneNumber, String employeeEmail,
-                    String employeeAddress, Position employeePosition, Division division,
-                    EducationDegree educationDegree) {
+    public Employee(int employeeId, String employeeName, String employeeDateOfBirth, String employeeIdCard,
+                    double employeeSalary, String employeePhoneNumber, String employeeEmail, String employeeAddress,
+                    Position employeePosition, Division division, EducationDegree educationDegree) {
         this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.employeeDateOfBirth = employeeDateOfBirth;
@@ -51,11 +50,11 @@ public class Employee {
         this.employeeName = employeeName;
     }
 
-    public Date getEmployeeDateOfBirth() {
+    public String getEmployeeDateOfBirth() {
         return employeeDateOfBirth;
     }
 
-    public void setEmployeeDateOfBirth(Date employeeDateOfBirth) {
+    public void setEmployeeDateOfBirth(String employeeDateOfBirth) {
         this.employeeDateOfBirth = employeeDateOfBirth;
     }
 
@@ -121,22 +120,5 @@ public class Employee {
 
     public void setEducationDegree(EducationDegree educationDegree) {
         this.educationDegree = educationDegree;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "employeeId=" + employeeId +
-                ", employeeName='" + employeeName + '\'' +
-                ", employeeDateOfBirth=" + employeeDateOfBirth +
-                ", employeeIdCard='" + employeeIdCard + '\'' +
-                ", employeeSalary=" + employeeSalary +
-                ", employeePhoneNumber='" + employeePhoneNumber + '\'' +
-                ", employeeEmail='" + employeeEmail + '\'' +
-                ", employeeAddress='" + employeeAddress + '\'' +
-                ", employeePosition=" + employeePosition +
-                ", division=" + division +
-                ", educationDegree=" + educationDegree +
-                '}';
     }
 }
