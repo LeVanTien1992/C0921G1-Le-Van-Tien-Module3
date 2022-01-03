@@ -2,8 +2,11 @@ package controller;
 
 import bean.Customer;
 import bean.CustomerType;
+import bean.Employee;
 import service.CustomerService;
+import service.EmployeeService;
 import service.ipml.CustomerServiceIpml;
+import service.ipml.EmployeeServiceIpml;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -116,7 +119,7 @@ public class CustomerServlet extends HttpServlet {
 
 
 
-        request.getRequestDispatcher("update.jsp").forward(request, response);
+        request.getRequestDispatcher("updateCustomer.jsp").forward(request, response);
     }
     public void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         CustomerService customerService = new CustomerServiceIpml();
@@ -142,7 +145,5 @@ public class CustomerServlet extends HttpServlet {
         request.setAttribute("cList", customerList);
         request.getRequestDispatcher("customerHome.jsp").forward(request,response);
     }
-
-
 
 }

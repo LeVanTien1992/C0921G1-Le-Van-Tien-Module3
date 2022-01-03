@@ -11,7 +11,7 @@ public class Employee {
     private String employeePhoneNumber;
     private String employeeEmail;
     private String employeeAddress;
-    private Position employeePosition;
+    private Position position;
     private Division division;
     private EducationDegree educationDegree;
 
@@ -19,8 +19,8 @@ public class Employee {
     }
 
     public Employee(int employeeId, String employeeName, String employeeDateOfBirth, String employeeIdCard,
-                    double employeeSalary, String employeePhoneNumber, String employeeEmail, String employeeAddress,
-                    Position employeePosition, Division division, EducationDegree educationDegree) {
+                    double employeeSalary, String employeePhoneNumber, String employeeEmail,
+                    String employeeAddress, Position position, Division division, EducationDegree educationDegree) {
         this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.employeeDateOfBirth = employeeDateOfBirth;
@@ -29,7 +29,7 @@ public class Employee {
         this.employeePhoneNumber = employeePhoneNumber;
         this.employeeEmail = employeeEmail;
         this.employeeAddress = employeeAddress;
-        this.employeePosition = employeePosition;
+        this.position = position;
         this.division = division;
         this.educationDegree = educationDegree;
     }
@@ -98,12 +98,12 @@ public class Employee {
         this.employeeAddress = employeeAddress;
     }
 
-    public Position getEmployeePosition() {
-        return employeePosition;
+    public Position getPosition() {
+        return position;
     }
 
-    public void setEmployeePosition(Position employeePosition) {
-        this.employeePosition = employeePosition;
+    public void setPosition(Position position) {
+        this.position = position;
     }
 
     public Division getDivision() {
@@ -120,5 +120,22 @@ public class Employee {
 
     public void setEducationDegree(EducationDegree educationDegree) {
         this.educationDegree = educationDegree;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", employeeName='" + employeeName + '\'' +
+                ", employeeDateOfBirth='" + employeeDateOfBirth + '\'' +
+                ", employeeIdCard='" + employeeIdCard + '\'' +
+                ", employeeSalary=" + employeeSalary +
+                ", employeePhoneNumber='" + employeePhoneNumber + '\'' +
+                ", employeeEmail='" + employeeEmail + '\'' +
+                ", employeeAddress='" + employeeAddress + '\'' +
+                ", position=" + position +
+                ", division=" + division +
+                ", educationDegree=" + educationDegree +
+                '}';
     }
 }

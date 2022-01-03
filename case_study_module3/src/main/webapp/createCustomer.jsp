@@ -85,8 +85,8 @@
 
                         <div class="form-outline mb-4">
                             <select name="cl">
-                                <c:forEach items="${tony}" var="t">
-                                <option value="${t.customerTypeId}">${t.customerTypeName}</option>
+                                <c:forEach items="${tony}" var="p">
+                                <option value="${p.customerTypeId}">${p.customerTypeName}</option>
                                 </c:forEach>
                             </select>
                             <label class="form-label" >Customer Type </label>

@@ -51,7 +51,10 @@ public class CustomerRepositoryIpml implements CustomerRepository {
 
     public static void main(String[] args) {
         CustomerRepositoryIpml customerRepositoryIpml = new CustomerRepositoryIpml();
-
+        List<Customer> customerList = customerRepositoryIpml.getAllCustomer();
+        for (Customer customer: customerList){
+            System.out.println(customer);
+        }
     }
     @Override
     public List<Customer> displayCustomer() {
