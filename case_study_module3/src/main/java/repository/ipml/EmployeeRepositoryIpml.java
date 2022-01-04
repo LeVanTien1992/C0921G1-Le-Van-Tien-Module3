@@ -167,15 +167,16 @@ public class EmployeeRepositoryIpml implements EmployeeRepository {
 
     @Override
     public Employee updateEmployeeById(String employeeId) {
-        String query = "select * \n" +
-                "from employee\n" +
+        String query = "select *\n" +
+                "from employee e join position p\n" +
+                "on e.position_id = p.position_id join education_degree ed\n" +
+                "on e.education_degree_id = ed.education_degree_id join division d \n" +
+                "on e.division_id = d.division_id\n" +
                 "where employee_id = ?;";
-        //        int employeeId, String employeeName, String employeeDateOfBirth, String employeeIdCard,
-//        double employeeSalary, String employeePhoneNumber, String employeeEmail,
-//                String employeeAddress, Position position, Division division, EducationDegree educationDegree
         try {
             connection = new DBConnect().getConnection();
             ps = connection.prepareStatement(query);
+            ps.setString(1, employeeId);
             rs = ps.executeQuery();
             while (rs.next()){
                 return new Employee(rs.getInt("employee_id"),
@@ -202,12 +203,75 @@ public class EmployeeRepositoryIpml implements EmployeeRepository {
 
     @Override
     public void updateEmployee(Employee employee) {
+        String query = "update employee\n" +
+                "set employee_name = ?,\n" +
+                "employee_birthday = ?,\n" +
+                "employee_id_card = ?,\n" +
+                "employee_salary = ?,\n" +
+                "employee_phone = ?,\n" +
+                "employee_email = ?,\n" +
+                "employee_address = ?,\n" +
+                "position_id = ?,\n" +
+                "education_degree_id = ?,\n" +
+                "division_id = ?\n" +
+                "where employee_id = ?;";
 
+        try {
+            connection = new DBConnect().getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setString(1, employee.getEmployeeName());
+            ps.setString(2, employee.getEmployeeDateOfBirth());
+            ps.setString(3, employee.getEmployeeIdCard());
+            ps.setDouble(4, employee.getEmployeeSalary());
+            ps.setString(5, employee.getEmployeePhoneNumber());
+            ps.setString(6, employee.getEmployeeEmail());
+            ps.setString(7, employee.getEmployeeAddress());
+            ps.setInt(8, employee.getPosition().getPositionId());
+            ps.setInt(9, employee.getEducationDegree().getEducationDegreeId());
+            ps.setInt(10, employee.getDivision().getDivisionId());
+            ps.setInt(11, employee.getEmployeeId());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public List<Employee> findByName(String name) {
-        return null;
+    public List<Employee> findByName(String employeeName, String employeeAddress) {
+        List<Employee> employeeList = new ArrayList<>();
+        String query = "select *\n" +
+                "from employee e join position p\n" +
+                "on e.position_id = p.position_id join education_degree ed\n" +
+                "on e.education_degree_id = ed.education_degree_id join division d \n" +
+                "on e.division_id = d.division_id\n" +
+                "where (employee_name like ?) and (employee_address like ?);";
+        try {
+            connection = new DBConnect().getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setString(1, "%"+employeeName+"%");
+            ps.setString(2, "%"+employeeAddress+"%");
+            rs = ps.executeQuery();
+            while (rs.next()){
+                employeeList.add(new Employee(rs.getInt("employee_id"),
+                        rs.getString("employee_name"),
+                        rs.getString("employee_birthday"),
+                        rs.getString("employee_id_card"),
+                        rs.getDouble("employee_salary"),
+                        rs.getString("employee_phone"),
+                        rs.getString("employee_email"),
+                        rs.getString("employee_address"),
+                        new Position(rs.getInt("position_id"),
+                                rs.getString("position_name")),
+                        new Division(rs.getInt("division_id"),
+                                rs.getString("division_name")),
+                        new EducationDegree(rs.getInt("education_degree_id"),
+                                rs.getString("education_degree_name"))));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return employeeList;
     }
 
 

@@ -16,5 +16,5 @@ public interface EmployeeService {
     void removeEmployee(String employeeId);
     Employee updateEmployeeById(String employeeId);
     void updateEmployee(Employee employee);
-    List<Employee> findByName(String name);
+    List<Employee> findByName(String employeeName, String employeeAddress);
 }

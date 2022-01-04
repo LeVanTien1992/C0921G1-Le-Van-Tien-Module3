@@ -44,16 +44,16 @@ public class EmployeeServiceIpml implements EmployeeService {
 
     @Override
     public Employee updateEmployeeById(String employeeId) {
-        return null;
+        return this.employeeRepository.updateEmployeeById(employeeId);
     }
 
     @Override
     public void updateEmployee(Employee employee) {
-
+        employeeRepository.updateEmployee(employee);
     }
 
     @Override
-    public List<Employee> findByName(String name) {
-        return null;
+    public List<Employee> findByName(String employeeName, String employeeAddress) {
+        return this.employeeRepository.findByName(employeeName, employeeAddress);
     }
 }

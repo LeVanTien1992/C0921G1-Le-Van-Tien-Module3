@@ -40,62 +40,62 @@
 
                 <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-                    <form style="width: 23rem;" method="post" action="/customer?actionUser=update">
-                        <input type="hidden" name="actionUser" value="create">
+                    <form style="width: 23rem;" method="post" action="/employee">
+                        <input type="hidden" name="actionUser" value="update">
                         <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Update Employee</h3>
                         <div class="form-outline mb-4">
-                            <input type="text" name="employeeId" value="${cl.employeeId}" readonly class="form-control form-control-lg" />
+                            <input type="text" name="employeeId" value="${tony.employeeId}" readonly class="form-control form-control-lg" />
                             <label class="form-label" >Id </label>
                         </div>
 
                         <div class="form-outline mb-4">
-                            <input type="text" name="employeeName" value="${cl.employeeName}" class="form-control form-control-lg" />
+                            <input type="text" name="employeeName" value="${tony.employeeName}" class="form-control form-control-lg" />
                             <label class="form-label" >Name </label>
                         </div>
 
 
                         <div class="form-outline mb-4">
-                            <input type="text" name="employeeDateOfBirth" value="${cl.employeeDateOfBirth}" class="form-control form-control-lg" />
+                            <input type="text" name="employeeDateOfBirth" value="${tony.employeeDateOfBirth}" class="form-control form-control-lg" />
                             <label class="form-label" >Date Of Birth </label>
                         </div>
 
 
                         <div class="form-outline mb-4">
-                            <input type="text" name="employeeIdCard" value="${cl.employeeIdCard}" class="form-control form-control-lg" />
+                            <input type="text" name="employeeIdCard" value="${tony.employeeIdCard}" class="form-control form-control-lg" />
                             <label class="form-label" >Id Card</label>
                         </div>
 
 
                         <div class="form-outline mb-4">
-                            <input type="text" name="employeeSalary"  value="${cl.employeeSalary}" class="form-control form-control-lg" />
+                            <input type="text" name="employeeSalary"  value="${tony.employeeSalary}" class="form-control form-control-lg" />
                             <label class="form-label" >Salary </label>
                         </div>
 
 
                         <div class="form-outline mb-4">
-                            <input type="text" name="employeePhoneNumber" value="${cl.employeePhoneNumber}" class="form-control form-control-lg" />
+                            <input type="text" name="employeePhoneNumber" value="${tony.employeePhoneNumber}" class="form-control form-control-lg" />
                             <label class="form-label" >Phone </label>
                         </div>
 
                         <div class="form-outline mb-4">
-                            <input type="text" name="employeeEmail" value="${cl.employeeEmail}" class="form-control form-control-lg" />
+                            <input type="text" name="employeeEmail" value="${tony.employeeEmail}" class="form-control form-control-lg" />
                             <label class="form-label" >Email </label>
                         </div>
 
                         <div class="form-outline mb-4">
-                            <input type="text" name="employeeAddress" value="${cl.employeeAddress}" class="form-control form-control-lg" />
+                            <input type="text" name="employeeAddress" value="${tony.employeeAddress}" class="form-control form-control-lg" />
                             <label class="form-label" >Address </label>
                         </div>
 
                         <div class="form-outline mb-4">
-                            <select name="e">
-                                <c:forEach items="${position}" var="p">
+                            <select name="position">
+                                <c:forEach items="${position}" var="pi">
                                     <c:choose>
-                                        <c:when test="${p.positionId == e.position.positionId}">
-                                            <option selected value="${p.positionId}">${p.positionName}</option>
+                                        <c:when test="${pi.positionId == tony.position.positionId}">
+                                            <option selected value="${pi.positionId}">${pi.positionName}</option>
                                         </c:when>
                                         <c:otherwise>
-                                            <option  value="${p.positionId}">${p.positionName}</option>
+                                            <option  value="${pi.positionId}">${pi.positionName}</option>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:forEach>
@@ -104,10 +104,10 @@
                         </div>
 
                         <div class="form-outline mb-4">
-                            <select name="e">
+                            <select name="education">
                                 <c:forEach items="${education}" var="ed">
                                     <c:choose>
-                                        <c:when test="${ed.educationDegreeId == e.educationDegree.educationDegreeId}">
+                                        <c:when test="${ed.educationDegreeId == tony.educationDegree.educationDegreeId}">
                                             <option selected value="${ed.educationDegreeId}">${ed.educationDegreeName}</option>
                                         </c:when>
                                         <c:otherwise>
@@ -121,14 +121,14 @@
 
 
                         <div class="form-outline mb-4">
-                            <select name="e">
-                                <c:forEach items="${division}" var="d">
+                            <select name="division">
+                                <c:forEach items="${division}" var="di">
                                     <c:choose>
-                                        <c:when test="${d.divisionId == e.division.divisionId}">
-                                            <option selected value="${d.divisionId}">${d.divisionName}</option>
+                                        <c:when test="${di.divisionId == tony.division.divisionId}">
+                                            <option selected value="${di.divisionId}">${di.divisionName}</option>
                                         </c:when>
                                         <c:otherwise>
-                                            <option  value="${d.divisionId}">${d.divisionName}</option>
+                                            <option  value="${di.divisionId}">${di.divisionName}</option>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:forEach>

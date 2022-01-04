@@ -274,7 +274,7 @@
                     </div>
                     <div class="col-sm-6">
                         <a href="/employee?actionUser=showFormEmployee" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
-                        <form action="/customer?actionUser=search" method="post">
+                        <form action="/employee?actionUser=search" method="post">
                             <input type="text" name="search" placeholder="Enter Keyword">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
@@ -300,10 +300,10 @@
                     <th>Employee Address</th>
                     <th>Position Id </th>
                     <th>Position Name</th>
-                    <th>Division Id </th>
-                    <th>Division Name</th>
                     <th>Education Degree Id </th>
                     <th>Education Degree Name</th>
+                    <th>Division Id </th>
+                    <th>Division Name</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -326,12 +326,13 @@
                         <td><c:out value="${e.employeeAddress}"/></td>
                         <td><c:out value="${e.position.positionId}"/></td>
                         <td><c:out value="${e.position.positionName}"/></td>
-                        <td><c:out value="${e.division.divisionId}"/></td>
-                        <td><c:out value="${e.division.divisionName}"/></td>
                         <td><c:out value="${e.educationDegree.educationDegreeId}"/></td>
                         <td><c:out value="${e.educationDegree.educationDegreeName}"/></td>
+                        <td><c:out value="${e.division.divisionId}"/></td>
+                        <td><c:out value="${e.division.divisionName}"/></td>
+
                         <td>
-                            <a href="/employee?actionUser=formUpdateById&uid=${e.employeeId}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a href="/employee?actionUser=formUpdateById&eid=${e.employeeId}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-${e.employeeId}">
                                 Delete
                             </button>

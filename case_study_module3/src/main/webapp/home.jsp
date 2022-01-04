@@ -26,7 +26,7 @@
                 <a class="nav-link col-lg-2" href="#">Home</a>
                 <a class="nav-link col-lg-2" href="/employee">Employee</a>
                 <a class="nav-link col-lg-2" href="/customer?actionUser=showList">Customer</a>
-                <a class="nav-link col-lg-2" href="#">Service</a>
+                <a class="nav-link col-lg-2" href="/service">Service</a>
                 <a class="nav-link col-lg-2" href="#">Contact</a>
             </div>
             <div class="col-lg-3 pt-lg-1">
