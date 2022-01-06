@@ -42,7 +42,7 @@
 
           <form style="width: 23rem;" method="post" action="/customer?actionUser=update">
             <input type="hidden" name="actionUser" value="create">
-            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create Customer</h3>
+            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Update Customer</h3>
             <div class="form-outline mb-4">
               <input type="text" name="customerId" value="${cl.customerId}" readonly class="form-control form-control-lg" />
               <label class="form-label" >Id </label>
@@ -55,13 +55,22 @@
 
 
             <div class="form-outline mb-4">
-              <input type="text" name="customerDateOfBirth" value="${cl.customerDateOfBirth}" class="form-control form-control-lg" />
+              <input type="date" name="customerDateOfBirth" value="${cl.customerDateOfBirth}" class="form-control form-control-lg" />
               <label class="form-label" >Date Of Birth </label>
             </div>
 
 
             <div class="form-outline mb-4">
-              <input type="text" name="customerGender" value="${cl.customerGender}" class="form-control form-control-lg" />
+              <select name="customerGender" >
+                <c:if test="${cl.customerGender==1}">
+                  <option value="1" selected>Male</option>
+                  <option value="0">Female</option>
+                </c:if>
+                <c:if test="${cl.customerGender==0}">
+                  <option value="1">Male</option>
+                  <option value="0" selected>Female</option>
+                </c:if>
+              </select>
               <label class="form-label" >Gender</label>
             </div>
 

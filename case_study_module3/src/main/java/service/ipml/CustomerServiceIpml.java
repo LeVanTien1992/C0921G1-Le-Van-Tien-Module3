@@ -7,7 +7,9 @@ import repository.ipml.CustomerRepositoryIpml;
 import service.CustomerService;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerServiceIpml implements CustomerService {
     private CustomerRepository customerRepository = new CustomerRepositoryIpml();
@@ -22,9 +24,20 @@ public class CustomerServiceIpml implements CustomerService {
     }
 
     @Override
-    public void addCustomer(Customer customer) {
-        
-        customerRepository.addCustomer(customer);
+    public Map<String, String> addCustomer(Customer customer) {
+        Map<String, String > messageMap = new HashMap<>();
+
+        if(!customer.getCustomerName().matches("[A-Za-z ]+")){
+            messageMap.put("name", "Invalid name format");
+        }
+        if("".equals(customer.getCustomerDateOfBirth())){
+            messageMap.put("dateOfBirth", "Please input dateOfBirth");
+        }
+
+        if(messageMap.isEmpty()){
+            customerRepository.addCustomer(customer);
+        }
+        return messageMap;
     }
 
     @Override

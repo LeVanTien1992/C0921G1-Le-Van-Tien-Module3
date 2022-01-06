@@ -48,16 +48,19 @@
                             <input type="text" name="customerName" class="form-control form-control-lg" />
                             <label class="form-label" >Name </label>
                         </div>
-
+                        <p style="color: red">${nameMsg}</p>
 
                         <div class="form-outline mb-4">
-                            <input type="text" name="customerDateOfBirth" class="form-control form-control-lg" />
+                            <input type="date" name="customerDateOfBirth" class="form-control form-control-lg" />
                             <label class="form-label" >Date Of Birth </label>
                         </div>
-
+                        <p style="color: red">${dateOfBirthMsg}</p>
 
                         <div class="form-outline mb-4">
-                            <input type="text" name="customerGender" class="form-control form-control-lg" />
+                            <select name="customerGender">
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                            </select>
                             <label class="form-label" >Gender</label>
                         </div>
 

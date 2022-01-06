@@ -51,14 +51,14 @@
 
 
                         <div class="form-outline mb-4">
-                            <input type="text" name="employeeDateOfBirth" class="form-control form-control-lg" />
+                            <input type="date" name="employeeDateOfBirth" class="form-control form-control-lg" />
                             <label class="form-label" >Date Of Birth </label>
                         </div>
 
 
                         <div class="form-outline mb-4">
                             <input type="text" name="employeeIdCard" class="form-control form-control-lg" />
-                            <label class="form-label" >Id Cardemployee</label>
+                            <label class="form-label" >Id Card</label>
                         </div>
 
 
